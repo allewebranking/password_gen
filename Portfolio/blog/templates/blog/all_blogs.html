@@ -1,0 +1,12 @@
+{% extends 'portfolio/base.html' %}
+
+
+{% block content %}
+    <h2>ci sono {{paragraphs.count}} blog</h2>
+    {% for paragr in paragraphs %}
+    <a href="{% url 'blog:detail' paragr.id %}"><h1>{{paragr.title}}</h1></a>
+    <h3>{{paragr.time}}</h3>
+    <p>{{paragr.description|safe|truncatechars:10}}</p>
+    {% endfor %}
+
+{% endblock %}
